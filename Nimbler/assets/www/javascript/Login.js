@@ -8,7 +8,7 @@ $(document).ready(function() {
 		$("#myButton").click(function(e){
 				
 				//$.md5(password);
-
+				document.getElementById("modal").style.display="block";
 				//document.setAttribute('password',$.md5(document.getElementById('password'));
 
 				//get the form data and then serialize that
@@ -61,6 +61,10 @@ $(document).ready(function() {
 					complete: function(jqXHR, textStatus){
 						//enable the button
 						$('#myButton').attr("disabled", false);
+						document.getElementById("modal").style.display="none";
+						
+						// Redirect to Main Menu
+						window.location.replace("menu.html");
 					}
 		 
 				});        
