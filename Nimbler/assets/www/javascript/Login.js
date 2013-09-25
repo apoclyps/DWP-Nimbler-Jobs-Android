@@ -36,7 +36,7 @@ $(document).ready(function() {
 							 $("#ajaxResponse").append("<b>Password :</b> " + data.userInfo.password + "\n<br>");
 
 							 $("#ajaxResponse").append("<b> DataString :</b> " + dataString.toString() + "\n");
-			
+								//window.location.replace("menu.html");
 						 }
 						 //display error message
 						 else {
@@ -64,7 +64,7 @@ $(document).ready(function() {
 						document.getElementById("modal").style.display="none";
 						
 						// Redirect to Main Menu
-						window.location.replace("menu.html");
+						//window.location.replace("menu.html");
 					}
 		 
 				});        
