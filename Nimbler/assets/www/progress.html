@@ -13,6 +13,12 @@
 
 	<title>Progress</title>
 	
+	<script>	
+		$(document).on("mobileinit", function() {
+			$.mobile.defaultPageTransition = "slide";
+		});	
+	</script>
+	
 	<style type="text/css">
             .ui-mobile
             .ui-page
@@ -26,7 +32,7 @@
 	
 </head>
 <body>
-	<div data-role="page" data-theme="a" style="height:100%;width:100%;margin:0">
+	<div data-role="page" class="page" data-theme="a" data-transition="slide" style="height:100%;width:100%;margin:0">
 		
 		<div data-role="header" data-position="inline">
 				<img alt="DWP Crest" src="img/dwpCrest.png" style="float:left">
@@ -119,6 +125,20 @@
             <a href="menu.html" rel="external" style="width:100px; float:left"data-role="button">Back</a>
         </div>
 		
-	</div>	
+	</div>
+	
+	<script>
+        $(function () {
+            $("div.page").on("swiperight", swiperightHandler);
+
+            function swiperightHandler(event) {
+
+                window.location.href = 'menu.html';
+
+            }
+        });
+		
+	</script>
+	
 </body>
 </html>
