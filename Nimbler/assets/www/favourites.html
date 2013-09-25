@@ -12,9 +12,16 @@
 	<script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
 
 	<title>Favourites</title>
+	
+	<script>	
+		$(document).on("mobileinit", function() {
+			$.mobile.defaultPageTransition = "slide";
+		});	
+	</script>
+	
 </head>
 <body>
-	<div data-role="page" data-theme="a" style="height:100%;width:100%;margin:0">
+	<div data-role="page" class="page" data-theme="a" data-transition="slide" style="height:100%;width:100%;margin:0">
 		
 		<div data-role="header" data-position="inline">
 				<img alt="DWP Crest" src="img/dwpCrest.png" style="float:left">
@@ -71,5 +78,18 @@
                                 </form>
              
         </div>	
+        
+        <script>
+        	$(function () {
+            	$("div.page").on("swiperight", swiperightHandler);
+
+            	function swiperightHandler(event) {
+
+                	window.location.href = 'menu.html';
+
+            	}
+        	});		
+		</script>
+        
 </body>
 </html>
