@@ -1,41 +1,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 	<meta charset="ISO-8859-1">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
-	<link rel="stylesheet" href="css/loadingScreen.css" />
+	<link rel="stylesheet" href="css/loadingScreen.css"/>
+		
 	<link rel="stylesheet" href="themes/nimbler.min.css" />
 	<link rel="stylesheet" href="jquery/jquery.mobile.structure-1.3.2.min.css" />
 	<script type="text/javascript" src="jquery/jquery-1.9.1.min.js"></script>
 	<script type="text/javascript" src="jquery/jquery.mobile-1.3.2.min.js"></script>
 
 	<script type="text/javascript" charset="utf-8" src="javascript/cordova.js"></script>
-	<script type="text/javascript" src="javascript/signup.js"></script>
-	<script type="text/javascript" src="javascript/cross-domain.js"></script>
-	
+
 	<title>Sign Up</title>
+	
+	<script type="text/javascript" src="javascript/signup.js"></script>
+	<!--<script type="text/javascript" src="javascript/cross-domain.js"></script>-->
+	
+	<script>	
+		$(document).on("mobileinit", function() {
+			$.mobile.defaultPageTransition = "slide";
+		});	
+	</script>
+	
+	
+	<script type="text/javascript">
+		$(document).bind("mobileinit", function() {
+			$.mobile.allowCrossDomainPages = true;
+			$.mobile.ajaxEnabled = true;
+			$.support.cors = true;
+		});
+	</script>
+	
+	
+	
 </head>
 <body>
-	<div data-role="page" data-theme="a" style="height:100%;width:100%;margin:0">
+
+	<div data-role="page" class="page" data-theme="a" data-transition="slide" style="height:100%;width:100%;margin:0">
 		
 		<div data-role="header" data-position="inline">
 				<img alt="DWP Crest" src="img/dwpCrest.png" style="float:left">
 				<h1>Sign Up</h1>
 		</div>
-		
+				
 		<div data-role="content" data-theme="a">
-
-   		<form id="myAjaxRequestForm" style="width:80%;top:10%;left:10%;position:absolute">
-              
-              			<p>Account Settings</p>
-       					<input type="text" name="email" id="email" value="" placeholder="Email Address">
+                
+                <form id="myAjaxRequestForm">
+                    <div data-role="fieldcontainOne">
+                       
+                        <input type="text" name="email" id="email" value="" placeholder="Email Address">
                         <input type="password"  name="password" id="password" value=""placeholder="Password">
                         <input type="password" name="passwordConfirmation"  id="passwordConfirmation" value=""placeholder="Re-Enter Password">
                        	<br />
-                       	
-                       	<p> Personal Information </p>
-                       	
                         <select name="title" id="title">
                         	<option value="Title">Title</option>
                             <option value="Mr">Mr</option>
@@ -47,18 +66,28 @@
                          <input type="text" name="firstname" id="firstname" value="" placeholder="First Name">
                          <input type="text" name="surname" id="surname" value="" placeholder="Surname">
                          <input type="text" name="postcode" id="postcode" value="" placeholder="Postcode">
-       
-	            <input id="myButton" type="button" value="Register">     
-       </form>
-
-            <div id="anotherSection" style="top:65%;width:80%;left:10%;position:absolute">
-		                 <div id="ajaxResponse"></div>
-		    </div>   
+                        
+                    </div>
+                    
+                    <div class="backButton">
+                		<a href="login.html" rel="external" style="width:100px; float:left"data-role="button">Back</a>
+            		</div>
+            		
+            		<input id="myButton" type="button" value="Submit"></input>
+            		
+            	</form>
+            	
+            	<!-- For Debugging -->
+            	<div id="anotherSection" style="top:65%;width:80%;left:10%;position:absolute">
+					<div id="ajaxResponseSignup"></div>
+				</div>
             
-            <div class="modal" id="modal"><!--Loading Screen--></div>
-
-        </div>
-		
+            	<!-- For Loading Screen -->
+            	<div class="modal" id="modal"><!--Loading Screen--></div>
+                    
+		</div>
+        			
 	</div>
+
 </body>
 </html>

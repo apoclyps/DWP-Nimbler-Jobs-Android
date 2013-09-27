@@ -27,18 +27,23 @@ $(document).ready(function() {
 						//our country code was correct so we have some information to display
 						 if(data.success){
 
-							 $("#ajaxResponse").html("");
- 							 $("#ajaxResponse").append("<b>Sign Up:</b> " + data.success + "\n<br><br>");
-							 $("#ajaxResponse").append("<b>Email:</b> " + data.userInfo.email + "\n<br>");
-							 $("#ajaxResponse").append("<b>Password :</b> " + data.userInfo.password + "\n<br>");
-							 $("#ajaxResponse").append("<b>Password Confirmation:</b> " + data.userInfo.passwordConfirmation + "\n<br>");
+								$("#ajaxResponseSignup").html("");
+								$("#ajaxResponseSignup").append("<b>Sign Up:</b> " + data.success + "\n<br><br>");
+								$("#ajaxResponseSignup").append("<b>Email:</b> " + data.userInfo.email + "\n<br>");
+								$("#ajaxResponseSignup").append("<b>Password :</b> " + data.userInfo.password + "\n<br>");
+								$("#ajaxResponseSignup").append("<b>Password Confirmation:</b> " + data.userInfo.passwordConfirmation + "\n<br>");
+
+								$("#ajaxResponseSignup").append("<b>Title :</b> " + data.userInfo.title + "\n<br>");
+								$("#ajaxResponseSignup").append("<b>First Name :</b> " + data.userInfo.firstname + "\n<br>");
+								$("#ajaxResponseSignup").append("<b>Surname :</b> " + data.userInfo.surname + "\n<br>");
+								$("#ajaxResponseSignup").append("<b>Postcode :</b> " + data.userInfo.postcode + "\n<br>");
+
+								$("#ajaxResponseSignup").append("<b> DataString :</b> " + dataString.toString() + "\n");		
 							 
-							$("#ajaxResponse").append("<b>Title :</b> " + data.userInfo.title + "\n<br>");
-							$("#ajaxResponse").append("<b>First Name :</b> " + data.userInfo.firstname + "\n<br>");
-							$("#ajaxResponse").append("<b>Surname :</b> " + data.userInfo.surname + "\n<br>");
-							$("#ajaxResponse").append("<b>Postcode :</b> " + data.userInfo.postcode + "\n<br>");
 							 
-							 $("#ajaxResponse").append("<b> DataString :</b> " + dataString.toString() + "\n");
+							 
+							 
+							 alert(data.success);
 			
 							 // Redirect to Main Menu
 							// window.location.replace("menu.html");
@@ -46,14 +51,16 @@ $(document).ready(function() {
 						 }
 						 //display error message
 						 else {
-							 $("#ajaxResponse").html("<div><b>Login failed</b></div>");
+							 alert("Fail");
+							 
+							 $("#ajaxResponseSignup").html("<div><b>Signup failed</b></div>");
 						 }
 					},
 					 
 					//If there was no resonse from the server
 					error: function(jqXHR, textStatus, errorThrown){
 						 console.log("Something really bad happened " + textStatus);
-						  $("#ajaxResponse").html(jqXHR.responseText);
+						  $("#ajaxResponseSignup").html(jqXHR.responseText);
 					},
 					 
 					//capture the request before it was sent to server

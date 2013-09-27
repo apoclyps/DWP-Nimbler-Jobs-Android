@@ -6,7 +6,7 @@ $(document).ready(function() {
 		
 		//checks for the button click event
 		$("#myButton").click(function(e){
-				
+
 				//$.md5(password);
 				document.getElementById("modal").style.display="block";
 				//document.setAttribute('password',$.md5(document.getElementById('password'));
@@ -36,7 +36,10 @@ $(document).ready(function() {
 							 $("#ajaxResponse").append("<b>Password :</b> " + data.userInfo.password + "\n<br>");
 
 							 $("#ajaxResponse").append("<b> DataString :</b> " + dataString.toString() + "\n");
-								//window.location.replace("menu.html");
+			
+							// Redirect to Main Menu
+							window.location.replace("search.html");
+			
 						 }
 						 //display error message
 						 else {
@@ -63,8 +66,7 @@ $(document).ready(function() {
 						$('#myButton').attr("disabled", false);
 						document.getElementById("modal").style.display="none";
 						
-						// Redirect to Main Menu
-						//window.location.replace("menu.html");
+
 					}
 		 
 				});        
